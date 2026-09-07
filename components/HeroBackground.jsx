@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const slides = [
-  "/hero/slide-1.jpg",
-  "/hero/slide-2.jpg",
-  "/hero/slide-3.jpg",
+  "/imgs/pet it/portada2.jpeg",
+  "/imgs/pet it/atencion1.jpeg",
+  "/imgs/pet it/tienda2.jpeg",
 ];
 
 export default function HeroBackground() {
