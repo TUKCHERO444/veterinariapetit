@@ -1,4 +1,4 @@
-# Design — Identity Visual · Veterinaria Iváncho
+# Design — Identity Visual · Veterinaria Pet It
 
 > Fuente de verdad de la identidad visual. Reflejada en los tokens de `app/globals.css` (`@theme`). Cualquier cambio de identidad debe actualizar este documento Y los tokens.
 
@@ -6,12 +6,11 @@
 
 **"Un cuidado claro y cristalino."**
 
-Veterinaria Iváncho fusiona las dos caras del negocio en una sola imagen de **clínica moderna**: luz, aire, pulcritud y calma. No es oscura ni pesada — es un entorno *celeste pastel predominantemente blanco*, con degradados cristalinos que evocan vidrio limpio, agua fresca y esa sensación de recién desinfectado que da confianza.
+Veterinaria Pet It fusiona las dos caras del negocio en una sola imagen de **clínica moderna**: luz, aire, pulcritud y calma. No es oscura ni pesada — es un entorno *celeste pastel predominantemente blanco*, con degradados cristalinos que evocan vidrio limpio, agua fresca y esa sensación de recién desinfectado que da confianza.
 
-1. **Clínica** → transparencia, higiene, profesionalismo, calma.
-2. **Hospedaje** → confort sereno, frescura, cuidado.
+1. **Clínica veterinaria** → transparencia, higiene, profesionalismo, calma.
 
-La paleta lo resuelve en uno solo: un **azul cielo** como color de marca (salud, confianza, vitalidad) con una variante **cristal/cian** reservada al hospedaje, todo sobre **blanco y aguas muy claras**. El usuario percibe un lugar limpio, luminoso y seguro — exactamente lo que busca quien confía su mascota a un veterinario.
+La paleta lo resuelve en uno solo: un **azul cielo** como color de marca (salud, confianza, vitalidad) con una variante **cristal/cian** como acento secundario fresco, todo sobre **blanco y aguas muy claras**. El usuario percibe un lugar limpio, luminoso y seguro — exactamente lo que busca quien confía su mascota a un veterinario.
 
 ---
 
@@ -29,14 +28,14 @@ La paleta lo resuelve en uno solo: un **azul cielo** como color de marca (salud,
 | Cielo Pálido | `#E0F2FE` | rgb(224,242,254) | Fondos de tile/pilote, selección |
 | Cielo Paler | `#F0F9FF` | rgb(240,249,255) | Fondos de sección muy claros |
 
-### Secundarios (cristal/cian — hospedaje)
+### Secundarios (cristal/cian — acento)
 | Nombre | Hex | RGB | Uso |
 |--------|-----|-----|-----|
-| Cristal | `#06B6D4` | rgb(6,182,212) | Iconos y acentos del servicio de hospedaje |
-| Cristal Oscuro | `#0E7490` | rgb(14,116,144) | **CTA hospedaje** con texto blanco (5.4:1 AA) |
-| Cristal Noche | `#155E75` | rgb(21,94,117) | Hover/pressed de CTA hospedaje (7.3:1 AAA) |
-| Cristal Suave | `#A5F3FC` | rgb(165,243,252) | Acentos pastel de hospedaje |
-| Cristal Pálido | `#CFFAFE` | rgb(207,250,254) | Badges/fills de hospedaje (con cristal oscuro: 4.8:1) |
+| Cristal | `#06B6D4` | rgb(6,182,212) | Iconos y acentos secundarios |
+| Cristal Oscuro | `#0E7490` | rgb(14,116,144) | **CTA secundario** con texto blanco (5.4:1 AA) |
+| Cristal Noche | `#155E75` | rgb(21,94,117) | Hover/pressed de CTA secundario (7.3:1 AAA) |
+| Cristal Suave | `#A5F3FC` | rgb(165,243,252) | Acentos pastel secundarios |
+| Cristal Pálido | `#CFFAFE` | rgb(207,250,254) | Badges/fills secundarios (con cristal oscuro: 4.8:1) |
 
 ### Neutros (clínicos y luminosos)
 | Nombre | Hex | RGB | Uso |
@@ -63,7 +62,7 @@ La paleta lo resuelve en uno solo: un **azul cielo** como color de marca (salud,
 |-------------|-------|-------|
 | Blanco sobre Celeste Profundo (CTA) | 5.9:1 | AA |
 | Blanco sobre Celeste Noche (CTA hover) | 7.6:1 | AAA |
-| Blanco sobre Cristal Oscuro (CTA hospedaje) | 5.4:1 | AA |
+| Blanco sobre Cristal Oscuro (CTA secundario) | 5.4:1 | AA |
 | Blanco sobre Cristal Noche (CTA hover) | 7.3:1 | AAA |
 | Tinta sobre Papel (body) | 17.9:1 | AAA |
 | Tinta Media sobre Papel (cuerpo sec.) | 7.6:1 | AAA |
@@ -72,12 +71,12 @@ La paleta lo resuelve en uno solo: un **azul cielo** como color de marca (salud,
 | Noche Tinta sobre Noche (footer) | 12.1:1 | AAA |
 | Noche Muted sobre Noche | 7.6:1 | AAA |
 
-> Reglas: el **Cristal** se reserva al hospedaje; el **Celeste** a salud/clínica. Blanco sobre `#0EA5E9` no alcanza AA (2.8:1) → **nunca** texto blanco sobre Celeste base: usarlo solo como fill/display grande o degradado. Los botones siempre usan Profundo/Noche.
+> Reglas: el **Cristal** es acento secundario; el **Celeste** el color de marca. Blanco sobre `#0EA5E9` no alcanza AA (2.8:1) → **nunca** texto blanco sobre Celeste base: usarlo solo como fill/display grande o degradado. Los botones siempre usan Profundo/Noche.
 
 ### Reglas de uso de color
 - Sitio **predominantemente blanco** con tintes `Cielo Paler`/`Superficie` por sección (degradados cristalinos blancos→celeste suave).
-- **60/30/10**: ~60% blancos/aguas claras, ~30% celestes suaves, ~10% acentos (cristal hospedaje, celeste profundo en CTAs).
-- El cristal se usa solo para **hospedaje/estadía**; el celeste para **salud/atención**.
+- **60/30/10**: ~60% blancos/aguas claras, ~30% celestes suaves, ~10% acentos (cian, celeste profundo en CTAs).
+- El cian se usa como acento secundario; el celeste para salud/atención.
 - No usar más de 2-3 colores por componente.
 - No usar gris `#94A3B8` para cuerpo (usar Tinta Media).
 - Nunca depender solo del color para significado (acompañar con iconos/etiquetas).
@@ -137,10 +136,10 @@ Margen libre mínimo = altura del marcador del logo a cada lado.
 - **Esquinas**: redondeadas (`rounded-2xl` cards, `rounded-full` botones/badges) — limpias y amables, sin nada pesado.
 - **Sombras**: suaves y luminosas, con halo celeste muy sutil (`shadow-lg shadow-primary/10`). Sin sombras duras.
 - **Botones CTA primarios**: fondo Celeste Profundo, texto blanco; hover → Celeste Noche.
-- **CTA hospedaje**: fondo Cristal Oscuro, texto blanco; hover → Cristal Noche.
-- **Badge/etiqueta de hospedaje**: fondo Cristal Pálido, texto Cristal Oscuro.
+- **CTA secundario**: fondo Cristal Oscuro, texto blanco; hover → Cristal Noche.
+- **Badge/etiqueta secundaria**: fondo Cristal Pálido, texto Cristal Oscuro.
 - **Badge/etiqueta general**: fondo Celeste Pastel, texto Tinta.
-- **Iconos**: line/contorno con trazo medio (~2px), en Celeste Oscuro (salud) o Cristal (hospedaje).
+- **Iconos**: line/contorno con trazo medio (~2px), en Celeste Oscuro o Cristal.
 
 ---
 
@@ -167,12 +166,11 @@ Margen libre mínimo = altura del marcador del logo a cada lado.
 |----------|------|---------|
 | Hero | Inspirador y sereno | "Un cuidado claro y cristalino para tu mascota." |
 | Clínica/Servicios | Claro y seguro | "Atención veterinaria integral, en un ambiente limpio y luminoso." |
-| Hospedaje | Fresco y tranquilizador | "Un hospedaje fresco y sereno: se queda a gusto, tú sales tranquilo." |
-| Contacto | Cercano y resolutivo | "Agenda tu visita o consulta por hospedaje." |
+| Contacto | Cercano y resolutivo | "Agenda tu visita o escríbenos."
 | Error/404 | Amable y sin culpa | "Ups, esta página se fue de paseo." |
 
 ### Términos permitidos
-- Hospedaje / estadía / cuidados.
+- Cuidados, bienestar, atención.
 - Bienestar, cuidado, familia, confianza, calma, frescura.
 
 ### Términos prohibidos
@@ -188,7 +186,7 @@ Margen libre mínimo = altura del marcador del logo a cada lado.
 - [ ] ¿Colores dentro de la paleta (60/30/10)?
 - [ ] ¿Textos con contraste WCAG AA/AAA?
 - [ ] ¿`font-heading` solo en títulos, `font-body` en cuerpo?
-- [ ] ¿Cristal solo para hospedaje, celeste para salud?
+- [ ] ¿Cian solo como acento secundario, celeste como color de marca?
 - [ ] ¿CTAs con Celeste Profundo / Cristal Oscuro (nunca Celeste base)?
 - [ ] ¿Logo respeta espacio de seguridad y versión correcta para el fondo?
 - [ ] ¿Fotos luminosas, limpias y frescas?

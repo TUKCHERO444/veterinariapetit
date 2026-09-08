@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Veterinaria Iváncho | Tu Mascota, Tu Familia",
+  title: "Veterinaria Pet It | Tu Mascota, Tu Familia",
   description: "Atención veterinaria integral para tus mascotas.",
 };
 
@@ -9,6 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <head>
+        <link rel="icon" type="image/png" href="/imgs/pet it/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

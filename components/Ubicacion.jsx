@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, WhatsappLogo, Envelope } from "@phosphor-icons/react/ssr";
+import { MapPin, Clock, Phone, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import Mapa from "@/components/Mapa";
 import Reveal from "@/components/Reveal";
 import WaveDivider from "@/components/WaveDivider";
@@ -7,33 +7,26 @@ const contact = [
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Av. Ejemplo 123, San Miguel, Lima",
-    href: "#",
+    value: "Av. Salaverry 1496, Chiclayo 14009",
+    href: "https://www.google.com/maps/dir/?api=1&destination=Av.%20Salaverry%201496%2C%20Chiclayo%2014009",
   },
   {
     icon: Phone,
     label: "Teléfono",
-    value: "(01) 555-1234",
-    href: "tel:+5115551234",
+    value: "(074) 221172",
+    href: "tel:+5174221172",
   },
   {
     icon: WhatsappLogo,
     label: "WhatsApp",
-    value: "+51 999 888 777",
-    href: "https://wa.me/51999888777",
-  },
-  {
-    icon: Envelope,
-    label: "Email",
-    value: "hola@veterinariaivancho.com",
-    href: "mailto:hola@veterinariaivancho.com",
+    value: "+51 979 635 803",
+    href: "https://wa.me/51979635803",
   },
 ];
 
 const horarios = [
-  { day: "Lunes a Viernes", hours: "8:00 – 19:00" },
-  { day: "Sábados", hours: "9:00 – 17:00" },
-  { day: "Hospedaje", hours: "24/7" },
+  { day: "Lunes a sábado", manana: "9:00 a.m. – 2:00 p.m.", tarde: "4:00 – 7:00 p.m." },
+  { day: "Domingos", manana: "10:00 a.m. – 1:00 p.m.", tarde: "—" },
 ];
 
 export default function Ubicacion() {
@@ -56,8 +49,7 @@ export default function Ubicacion() {
             Visítanos o escríbenos
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            Estamos cerca de ti. Agenda tu cita, consulta disponibilidad de
-            hospedaje o resuelve cualquier duda.
+            Estamos cerca de ti. Agenda tu cita o resuelve cualquier duda.
           </p>
         </Reveal>
 
@@ -103,17 +95,46 @@ export default function Ubicacion() {
                     Horarios
                   </h3>
                 </div>
-                <ul className="mt-4 divide-y divide-line">
-                  {horarios.map((h) => (
-                    <li
-                      key={h.day}
-                      className="flex items-center justify-between py-3 text-sm"
-                    >
-                      <span className="text-ink-muted">{h.day}</span>
-                      <span className="font-medium text-ink">{h.hours}</span>
-                    </li>
-                  ))}
-                </ul>
+                <table className="mt-4 w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line">
+                      <th
+                        scope="col"
+                        className="py-2 text-left font-medium uppercase tracking-wide text-ink-muted"
+                      >
+                        Día
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-2 pr-3 text-right font-medium uppercase tracking-wide text-ink-muted"
+                      >
+                        Mañana
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-2 text-right font-medium uppercase tracking-wide text-ink-muted"
+                      >
+                        Tarde
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {horarios.map((h) => (
+                      <tr
+                        key={h.day}
+                        className="border-b border-line last:border-0"
+                      >
+                        <td className="py-3 text-ink-muted">{h.day}</td>
+                        <td className="py-3 pr-3 text-right font-medium text-ink">
+                          {h.manana}
+                        </td>
+                        <td className="py-3 text-right font-medium text-ink">
+                          {h.tarde}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </Reveal>
           </div>

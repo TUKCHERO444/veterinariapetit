@@ -1,54 +1,14 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import {
-  Stethoscope,
-  Bed,
-  ArrowRight,
-  Sparkle,
-} from "@phosphor-icons/react";
+import { Stethoscope, ArrowRight, Sparkle } from "@phosphor-icons/react/ssr";
 import Reveal from "@/components/Reveal";
 import HeroBackground from "@/components/HeroBackground";
 
-const textSlides = [
-  {
-    title: "Cuidamos a tu mascota",
-    highlight: "como si fuera nuestra",
-    sub: "Clínica veterinaria integral con atención experta y un trato cercano, en un ambiente limpio y luminoso.",
-  },
-  {
-    title: "Hospedaje fresco y sereno",
-    highlight: "se queda a gusto, tú sales tranquilo",
-    sub: "Estadías cómodas, seguras y con cuidados diarios para que tu mascota descanse.",
-  },
-];
+const facts = [{ icon: Stethoscope, label: "+10 años de experiencia" }];
 
 export default function Hero() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const timer = useRef(null);
-
-  useEffect(() => {
-    if (paused) return;
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (reduceMotion) return;
-    timer.current = setInterval(
-      () => setIndex((i) => (i + 1) % textSlides.length),
-      5000
-    );
-    return () => clearInterval(timer.current);
-  }, [paused]);
-
   return (
     <section
       id="inicio"
       className="relative flex min-h-screen items-center overflow-hidden pt-24"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
     >
       <HeroBackground />
 
@@ -66,32 +26,23 @@ export default function Hero() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary-soft bg-white/80 px-4 py-1.5 text-sm font-medium text-primary-deep backdrop-blur-sm">
               <Sparkle size={16} className="text-accent" weight="fill" aria-hidden="true" />
-              Clínica · Hospedaje · Tienda
+              Clínica veterinaria · Tienda
             </span>
           </Reveal>
 
-          <div className="mt-6 min-h-[220px]">
-            <Reveal delay={100}>
-              {textSlides.map((s, i) => (
-                <div
-                  key={i}
-                  className={i === index ? "block" : "hidden"}
-                  aria-hidden={i !== index}
-                >
-                  <h1 className="font-heading text-4xl font-bold uppercase leading-[1.05] tracking-wide text-ink sm:text-6xl lg:text-7xl">
-                    {s.title}{" "}
-                    <span className="bg-gradient-to-r from-primary-deep via-primary to-accent bg-clip-text text-transparent">
-                      {s.highlight}
-                    </span>
-                  </h1>
-                </div>
-              ))}
-            </Reveal>
-          </div>
+          <Reveal delay={100}>
+            <h1 className="mt-6 font-heading text-4xl font-bold uppercase leading-[1.05] tracking-wide text-ink sm:text-6xl lg:text-7xl">
+              Cuidamos a tu mascota{" "}
+              <span className="bg-gradient-to-r from-primary-deep via-primary to-accent bg-clip-text text-transparent">
+                como si fuera nuestra
+              </span>
+            </h1>
+          </Reveal>
 
           <Reveal delay={200}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-              {textSlides[index].sub}
+              Clínica veterinaria integral con atención experta y un trato
+              cercano, en un ambiente limpio y luminoso.
             </p>
           </Reveal>
 
@@ -104,22 +55,12 @@ export default function Hero() {
                 Nuestros servicios
                 <ArrowRight size={18} aria-hidden="true" />
               </a>
-              <a
-                href="#hospedaje"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-dark px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent/20 transition-all duration-200 hover:bg-accent-night"
-              >
-                Hospedaje
-                <Bed size={18} aria-hidden="true" />
-              </a>
             </div>
           </Reveal>
 
           <Reveal delay={400}>
             <div className="mt-10 flex flex-wrap gap-6">
-              {[
-                { icon: Stethoscope, label: "+10 años de experiencia" },
-                { icon: Bed, label: "Hospedaje seguro" },
-              ].map(({ icon: Icon, label }) => (
+              {facts.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
                   className="flex items-center gap-2 text-sm text-ink-muted"
@@ -130,32 +71,6 @@ export default function Hero() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </div>
-
-      <div
-        className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2"
-        role="tablist"
-        aria-label="Seleccionar slide"
-      >
-        <div className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 backdrop-blur-sm">
-          {textSlides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={i === index}
-              aria-label={`Slide ${i + 1}`}
-              onClick={() => setIndex(i)}
-              onFocus={() => setPaused(true)}
-              onBlur={() => setPaused(false)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                i === index
-                  ? "w-8 bg-primary-dark"
-                  : "w-2.5 bg-line hover:bg-mist"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

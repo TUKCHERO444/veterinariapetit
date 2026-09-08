@@ -2,7 +2,7 @@
 
 Documento de referencia de esta página como **plantilla reutilizable** para clínicas veterinarias. SPA con SSR: Next.js (App Router) + React 19 + Tailwind v4, **JSX plano (sin TypeScript)**.
 
-> **Contexto**: el contenido actual de la página ("Veterinaria Iváncho", contactos, horarios, textos) es **placeholder de ejemplo** del template. La veterinaria destino real tiene sus assets en `public/imgs/pet it/` (logo.jpg, portadas, fotos de atención). Antes de personalizar, revisa `AGENTS.md` → sección "PLANTILLA" con el checklist completo de puntos a actualizar.
+> **Contexto**: el contenido actual de la página corresponde a la clínica real **"Veterinaria Pet It"** (Av. Salaverry 1496, Chiclayo 14009), con assets en `public/imgs/pet it/` (logo.png, portadas, fotos de atención). La página sigue documentada como plantilla reutilizable: para personalizarla a otra veterinaria, revisa `AGENTS.md` → sección "PLANTILLA" con el checklist completo de puntos a actualizar.
 
 ---
 
@@ -39,9 +39,10 @@ project/
 │   ├── Header.jsx        # "use client" — nav fija, scroll effect, menú móvil
 │   ├── Hero.jsx          # "use client" — texto por slides (textSlides) + CTA
 │   ├── HeroBackground.jsx# "use client" — crossfade de fondo (`/hero/slide-*.jpg`)
-│   ├── Servicios.jsx     # Server — grid de servicios (flip 3D hover)
-│   ├── Hospedaje.jsx     # Server — hospedaje (sección cristal/cian)
-│   ├── Nosotros.jsx      # Server — marca + stats
+│   ├── Servicios.jsx     # Server — servicios médicos (2 cards grandes)
+│   ├── Analisis.jsx      # Server — análisis y laboratorio (2 cards)
+│   ├── ServiceSection.jsx# "use client" — cards con modal reutilizable (Servicios/Analisis)
+│   ├── Nosotros.jsx      # Server — marca + misión/visión/valores
 │   ├── Tienda.jsx        # Server — grid de productos
 │   ├── Ubicacion.jsx     # Server — contacto + horarios + wrapper de mapa
 │   ├── Mapa.jsx          # "use client" — dynamic import de MapaLugar (ssr: false)
@@ -51,7 +52,7 @@ project/
 │   ├── Reveal.jsx        # "use client" — animación scroll (IntersectionObserver)
 │   └── WaveDivider.jsx   # Server — divisor de ola entre secciones (`fill` = color sección previa)
 ├── public/
-│   ├── imgs/             # servicos/, hospedaje/, pet it/ (assets reales del negocio)
+│   ├── imgs/             # servicos/, pet it/ (assets reales del negocio)
 │   ├── hero/             # slide-1.jpg … slide-3.jpg (crossfade del hero)
 │   └── favicon.svg
 ├── jsconfig.json         # Path alias @/* → ./*
@@ -63,7 +64,7 @@ project/
 **Orden de secciones en `app/page.jsx`** (referencia fija de la plantilla):
 
 ```
-Header → main(Servicios, Hospedaje, Nosotros, Tienda, Ubicacion) → Footer
+Header → main(Servicios, Analisis, Nosotros, Tienda, Ubicacion) → Footer
 + WhatsAppButton flotante
 ```
 
@@ -88,7 +89,7 @@ const servicios = [
 export default function Servicios() { /* JSX con datos estáticos */ }
 ```
 
-**Actuales server components**: `Servicios`, `Hospedaje`, `Nosotros`, `Tienda`, `Ubicacion`, `Footer`, `WaveDivider`.
+**Actuales server components**: `Hero`, `Servicios`, `Nosotros`, `Tienda`, `Ubicacion`, `Footer`, `WaveDivider`.
 
 ### 3.2 Client Components
 
@@ -133,8 +134,8 @@ Definidos en `app/globals.css` con la directiva `@theme`. **Paleta celeste/cian/
   --color-primary: #0EA5E9;        /* celeste — marca, salud/clínica */
   --color-primary-deep: #0369A1;   /* CTAs con texto blanco (AA) */
   --color-primary-night: #075985;  /* hover/pressed de CTAs */
-  --color-accent: #06B6D4;         /* cian — hospedaje */
-  --color-accent-dark: #0E7490;    /* CTA hospedaje con texto blanco */
+  --color-accent: #06B6D4;         /* cian — acento secundario */
+  --color-accent-dark: #0E7490;    /* CTA secundario con texto blanco */
   --color-ink: #0F172A;            /* texto principal */
   --color-ink-muted: #475569;      /* texto secundario */
   --color-paper: #FFFFFF;          /* fondo base */
@@ -145,7 +146,7 @@ Definidos en `app/globals.css` con la directiva `@theme`. **Paleta celeste/cian/
 }
 ```
 
-> La **fuente de verdad de la identidad visual es `design.md`** (nombre, paleta completa con ratios WCAG, tipografía, logo, tono). Los tokens `@theme` la reflejan: **cualquier cambio de identidad actualiza `design.md` Y `globals.css` juntos**. Reglas clave: el **cian (`accent`) se reserva al hospedaje**; el **celeste (`primary`) a salud/atención**; los CTAs usan `*-deep`/`*-night` (nunca texto blanco sobre celeste base, no alcanza AA).
+> La **fuente de verdad de la identidad visual es `design.md`** (nombre, paleta completa con ratios WCAG, tipografía, logo, tono). Los tokens `@theme` la reflejan: **cualquier cambio de identidad actualiza `design.md` Y `globals.css` juntos**. Reglas clave: los CTAs usan `*-deep`/`*-night` (nunca texto blanco sobre celeste base, no alcanza AA).
 
 **Uso en Tailwind**: `bg-primary`, `text-ink-muted`, `border-accent-pale`, `font-heading`.
 
@@ -169,7 +170,7 @@ Cargadas via Google Fonts `<link>` en `layout.jsx` (no `next/font`):
 }
 ```
 
-Además, en `globals.css` viven animaciones custom (`--animate-fade-up`, `--animate-float`), la clase `.gif-crossfade` (crossfade de GIFs en Hospedaje) y el bloque `prefers-reduced-motion` global.
+Además, en `globals.css` viven animaciones custom (`--animate-fade-up`, `--animate-float`) y el bloque `prefers-reduced-motion` global.
 
 ---
 
@@ -181,7 +182,7 @@ Server component que envuelve toda la app:
 
 - Cargar fuentes globales
 - Definir `<html lang="es">`
-- Exportar `metadata` (SEO — **placeholder "Iváncho"; actualizar al personalizar**)
+- Exportar `metadata` (SEO — según veterinaria, p. ej. "Veterinaria Pet It")
 
 ### 5.2 Page Composition (`app/page.jsx`)
 
@@ -198,7 +199,7 @@ export default function Home() {
       <Header />
       <main>
         <Servicios />
-        <Hospedaje />
+        <Analisis />
         <Nosotros />
         <Tienda />
         <Ubicacion />
@@ -237,17 +238,13 @@ useEffect(() => {
 
 `scrolled` controla la sombra/estado del header fijo; `open` alterna el menú móvil y bloquea el scroll de `body`.
 
-### 6.2 Hero (`Hero.jsx` — texto) + HeroBackground (`HeroBackground.jsx` — fondo)
+### 6.2 Hero estático (`Hero.jsx`) + HeroBackground (`HeroBackground.jsx`)
 
-- **Hero**: rota `textSlides` (array de título/highlight/sub) con `setInterval` + cleanup, pausa en hover/focus, indicadores `role="tablist"`.
-- **HeroBackground**: crossfade de `/hero/slide-*.jpg` con `setInterval`. Ambos respetan `prefers-reduced-motion`.
-- `textSlides` es **dato del negocio: hay que reescribirlo al personalizar**.
+- **Hero**: server component. Título estático con CTA a servicios.
+- **HeroBackground**: crossfade de `/hero/slide-*.jpg` con `setInterval`. Respeta `prefers-reduced-motion`.
+- El texto del hero es **dato del negocio: hay que reescribirlo al personalizar**.
 
-### 6.3 Hospedaje con GIFs (`Hospedaje.jsx`)
-
-Fondo con 3 GIFs en crossfade usando la clase `.gif-crossfade` (definida en `globals.css`, con delays por `nth-of-type`). La clase se desactiva con `prefers-reduced-motion`.
-
-### 6.4 Mapa Leaflet (`MapaLugar.jsx`)
+### 6.3 Mapa Leaflet (`MapaLugar.jsx`)
 
 Inyectado desde `Ubicacion.jsx` vía `Mapa.jsx` con `next/dynamic` + `ssr: false`. Los datos de **contacto, horarios, WhatsApp y coordenadas son del negocio placeholder — hay que actualizarlos al personalizar**.
 
@@ -303,13 +300,13 @@ Aparece tras `scrollY > 300`. El `href` de WhatsApp es **dato del negocio — ac
 
 > Paso 0: `npm install` y `npm run dev` para inspeccionar la página actual.
 
-- [ ] **Marca/logo** — `components/Header.jsx` (palabra "Iváncho" + link) y `components/Footer.jsx`
+- [ ] **Marca/logo** — `components/Header.jsx` (palabra "Pet It" + link) y `components/Footer.jsx`
 - [ ] **SEO** — `metadata` en `app/layout.jsx` (title/description) y `docs/frase.txt` (copy base)
 - [ ] **Identidad visual** — `design.md` (nombre, paleta, tono) + tokens `@theme` en `app/globals.css` SIEMPRE juntos
 - [ ] **Contacto** — `components/Ubicacion.jsx` (dirección, teléfono, WhatsApp, email, horarios) y `components/WhatsAppButton.jsx` (href wa.me)
 - [ ] **Redes** — `components/Footer.jsx` (links Instagram/Facebook/WhatsApp)
-- [ ] **Textos de cada sección** — `Hero.jsx` (`textSlides`), `Servicios.jsx`, `Hospedaje.jsx`, `Nosotros.jsx`, `Tienda.jsx`, `Footer.jsx`
-- [ ] **Imágenes** — reemplazar rutas relativas en cada componente (assets reales en `public/imgs/pet it/`: uso de logo.jpg/portadas/fotos de atención; GIFs en `public/imgs/hospedaje/`; slides en `public/hero/`)
+- [ ] **Textos de cada sección** — `Hero.jsx`, `Servicios.jsx`, `Nosotros.jsx`, `Tienda.jsx`, `Footer.jsx`
+- [ ] **Imágenes** — reemplazar rutas relativas en cada componente (assets reales en `public/imgs/pet it/`: uso de logo.png/portadas/fotos de atención; slides en `public/hero/`)
 - [ ] **Si el negocio no ofrece una sección** — quitar la importación en `app/page.jsx` y el link del header; ajustar `WaveDivider fill` de la sección siguiente
 - [ ] Verificar con `npm run build` sin errores y confirmar `next` >= `15.5.7` (ver `docs/CVE-2025-55182-NETLIFY.md`) antes de desplegar
 

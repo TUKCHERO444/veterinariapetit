@@ -1,4 +1,4 @@
-# Veterinaria Iváncho — Landing Page
+# Veterinaria Pet It — Landing Page
 
 Landing page SPA con SSR usando Next.js (App Router), React 19 y Tailwind CSS v4.
 

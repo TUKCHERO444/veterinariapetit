@@ -1,18 +1,29 @@
-import { Heart, Users, HandHeart, PawPrint } from "@phosphor-icons/react/ssr";
+import { Heart, Users, HandHeart, Crosshair, Eye, Handshake } from "@phosphor-icons/react/ssr";
 import Reveal from "@/components/Reveal";
 import WaveDivider from "@/components/WaveDivider";
 
-const stats = [
-  { value: "+10", label: "años cuidando mascotas" },
-  { value: "+5.000", label: "pacientes atendidos" },
-  { value: "24/7", label: "cuidado en hospedaje" },
-  { value: "100%", label: "trato con cariño" },
+const pilares = [
+  {
+    icon: Crosshair,
+    title: "Misión",
+    desc: "Atención veterinaria integral con trato cálido y cercano, cuidando la salud y el bienestar de cada mascota en un ambiente limpio, luminoso y confiable.",
+  },
+  {
+    icon: Eye,
+    title: "Visión",
+    desc: "Ser la clínica veterinaria de confianza de nuestra comunidad, reconocida por su profesionalismo, tecnología y vocación de servicio.",
+  },
+  {
+    icon: Handshake,
+    title: "Valores",
+    desc: "Amor por los animales, responsabilidad, honestidad y trabajo en equipo guían cada decisión y cada atención que brindamos.",
+  },
 ];
 
 export default function Nosotros() {
   return (
     <section id="nosotros" className="relative bg-paper py-24">
-      <WaveDivider fill="#CFFAFE" />
+      <WaveDivider fill="#FFFFFF" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
@@ -21,25 +32,21 @@ export default function Nosotros() {
                 className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary-light/30 blur-3xl"
                 aria-hidden="true"
               />
-              <div className="relative flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-deep text-white shadow-md shadow-primary/20">
-                  <PawPrint size={32} weight="fill" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="font-heading text-2xl font-bold uppercase text-ink">
-                    Veterinaria Iváncho
-                  </p>
-                  <p className="text-sm text-ink-muted">
-                    Un cuidado claro y cristalino
-                  </p>
-                </div>
+              <div className="relative flex flex-col items-start gap-4">
+                <img
+                  src="/imgs/pet it/logo.png"
+                  alt="Logo de la veterinaria"
+                  className="h-16 w-auto object-contain"
+                />
+                <p className="text-sm text-ink-muted">
+                  Un cuidado claro y cristalino
+                </p>
               </div>
               <p className="relative mt-6 leading-relaxed text-ink-muted">
                 Somos un equipo de veterinarios y cuidadores que ve a cada
                 mascota como parte de la familia. Combinamos tecnología,
-                experiencia y mucha vocación para brindar atención de salud,
-                hospedaje y bienestar en un ambiente limpio, luminoso y
-                confiable.
+                experiencia y mucha vocación para brindar atención de salud y
+                bienestar en un ambiente limpio, luminoso y confiable.
               </p>
               <div className="relative mt-6 flex flex-wrap gap-4">
                 {[
@@ -68,20 +75,25 @@ export default function Nosotros() {
                 Más que una clínica, una familia
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                Nuestra misión es que cada mascota reciba el mejor cuidado
-                posible y que cada dueño se sienta seguro y acompañado en cada
-                paso.
+                Somos un equipo que combina experiencia y tecnología con un
+                trato humano, para acompañar a cada familia desde el primer
+                día.
               </p>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              {stats.map((stat, i) => (
-                <Reveal key={stat.label} delay={i * 90}>
-                  <div className="rounded-2xl border border-line bg-surface-soft p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-soft">
-                    <p className="font-heading text-3xl font-bold text-primary-dark sm:text-4xl">
-                      {stat.value}
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {pilares.map(({ icon: Icon, title, desc }, i) => (
+                <Reveal key={title} delay={i * 90} className="h-full">
+                  <div className="flex h-full flex-col rounded-2xl border border-line bg-surface-soft p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-soft">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-pale text-primary-dark">
+                      <Icon size={24} aria-hidden="true" />
+                    </div>
+                    <h3 className="mt-5 font-heading text-lg font-semibold uppercase tracking-wide text-ink">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                      {desc}
                     </p>
-                    <p className="mt-2 text-sm text-ink-muted">{stat.label}</p>
                   </div>
                 </Reveal>
               ))}
