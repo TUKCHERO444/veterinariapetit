@@ -27,8 +27,25 @@ const serviciosAnalisis = [
       "Exografías",
       "Evaluación conjunta con el equipo clínico",
     ],
-    image: "/imgs/pet it/digitalizador.jpeg",
+    image: "/imgs/pet it/ecografia1.jpeg",
     whatsapp: "Hola, quisiera información sobre el Diagnóstico por imágenes.",
+  },
+  {
+    icon: "cpu",
+    title: "Digitalización de rayos X",
+    desc: "Digitalización y procesamiento avanzado de radiografías para obtener imágenes de mayor calidad, facilidad de almacenamiento y consulta remota.",
+    features: [
+      "Digitalización de placas radiográficas",
+      "Procesamiento y mejora de imagen",
+      "Almacenamiento seguro en la nube (PACS)",
+      "Acceso remoto y compartido con especialistas",
+    ],
+    image: "/imgs/pet it/digitalizador3.jpeg",
+    modalImages: [
+      "/imgs/pet it/digitalizador3.jpeg",
+      "/imgs/pet it/digitalizador1.jpeg",
+    ],
+    whatsapp: "Hola, quisiera información sobre la Digitalización de rayos X.",
   },
 ];
 
@@ -54,6 +71,7 @@ export default function Analisis() {
         <div className="mt-14">
           <ServiceSection
             services={serviciosAnalisis}
+            cols={3}
             showHeading={false}
           />
         </div>

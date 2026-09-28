@@ -34,7 +34,12 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="flex items-center">
+        <a href="#inicio" className="flex items-center gap-2">
+          <img
+            src="/imgs/pet it/snoopy.png"
+            alt="Snoopy"
+            className="h-12 w-auto"
+          />
           <img
             src="/imgs/pet it/logo.png"
             alt="Logo de la veterinaria"

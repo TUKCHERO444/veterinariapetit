@@ -9,7 +9,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <head>
-        <link rel="icon" type="image/png" href="/imgs/pet it/logo.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/imgs/pet it/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/imgs/pet it/logo.png" />
+        <link rel="apple-touch-icon" href="/imgs/pet it/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

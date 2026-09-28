@@ -7,10 +7,13 @@ import {
   TestTube,
   Camera,
   Bathtub,
+  Cpu,
   X,
   Check,
   ArrowRight,
   WhatsappLogo,
+  CaretLeft,
+  CaretRight,
 } from "@phosphor-icons/react";
 import Reveal from "@/components/Reveal";
 
@@ -22,6 +25,7 @@ const ICONS = {
   testtube: TestTube,
   camera: Camera,
   bathtub: Bathtub,
+  cpu: Cpu,
 };
 
 function ServiceCard({ servicio, onOpen }) {
@@ -69,6 +73,7 @@ export default function ServiceSection({
   headingTitle,
 }) {
   const [active, setActive] = useState(null);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
   const closeRef = useRef(null);
   const lastFocused = useRef(null);
   const HeadingIcon = ICONS[headingIcon];
@@ -85,12 +90,32 @@ export default function ServiceSection({
   }, [active]);
 
   useEffect(() => {
+    setModalImageIndex(0);
+  }, [active]);
+
+  useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") setActive(null);
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
+
+  const currentModalImage = active?.modalImages?.[modalImageIndex] ?? active?.image;
+
+  const goToPrevImage = (e) => {
+    e.stopPropagation();
+    if (active?.modalImages && modalImageIndex > 0) {
+      setModalImageIndex((i) => i - 1);
+    }
+  };
+
+  const goToNextImage = (e) => {
+    e.stopPropagation();
+    if (active?.modalImages && modalImageIndex < active.modalImages.length - 1) {
+      setModalImageIndex((i) => i + 1);
+    }
+  };
 
   return (
     <div>
@@ -134,11 +159,52 @@ export default function ServiceSection({
           />
           <div className="relative z-10 max-h-[85vh] w-full max-w-3xl overflow-y-auto overflow-x-hidden rounded-3xl bg-paper shadow-2xl shadow-night/40">
             <div className="relative">
-              <img
-                src={active.image}
-                alt={active.title}
-                className="h-56 w-full object-cover sm:h-72"
-              />
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                <img
+                  src={currentModalImage}
+                  alt={`${active.title} - imagen ${modalImageIndex + 1}`}
+                  className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-in-out"
+                  style={{ opacity: 1 }}
+                />
+                {active.modalImages && active.modalImages.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={goToPrevImage}
+                      disabled={modalImageIndex === 0}
+                      aria-label="Imagen anterior"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-night/40 text-white backdrop-blur-md transition-colors duration-200 hover:bg-night/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-30 disabled:pointer-events-none"
+                    >
+                      <CaretLeft size={24} aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goToNextImage}
+                      disabled={modalImageIndex === active.modalImages.length - 1}
+                      aria-label="Imagen siguiente"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-night/40 text-white backdrop-blur-md transition-colors duration-200 hover:bg-night/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-30 disabled:pointer-events-none"
+                    >
+                      <CaretRight size={24} aria-hidden="true" />
+                    </button>
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {active.modalImages.map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setModalImageIndex(i)}
+                          aria-label={`Ver imagen ${i + 1}`}
+                          aria-current={i === modalImageIndex ? "true" : "false"}
+                          className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                            i === modalImageIndex
+                              ? "bg-white w-6"
+                              : "bg-white/50 hover:bg-white"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-night/60 to-transparent" />
               <button
                 ref={closeRef}
