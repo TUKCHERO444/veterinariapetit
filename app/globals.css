@@ -41,7 +41,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 120px;
   }
   body {
     font-family: var(--font-body);

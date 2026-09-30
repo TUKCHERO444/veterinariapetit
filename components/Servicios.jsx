@@ -23,11 +23,17 @@ const serviciosMedicos = [
     desc: "Procedimientos quirúrgicos seguros con equipos modernos, anestesia monitoreada y un cuidado postoperatorio que acompaña la recuperación de tu mascota en cada momento.",
     features: [
       "Cirugías de tejidos blandos y esterilizaciones",
+      "Cirugías de traumatología",
+      "Anestesia inalatoria",
       "Anestesia y monitoreo continuo",
       "Hospitalización y recuperación guiada",
       "Seguimiento postoperatorio",
     ],
     image: "/imgs/pet it/cirugia.jpeg",
+    modalImages: [
+      "/imgs/pet it/cirugia4.jpeg",
+      "/imgs/pet it/cirugia.jpeg",
+    ],
     whatsapp: "Hola, quisiera información sobre el servicio de Cirugías.",
   },
   {

@@ -33,26 +33,26 @@ export default function Header() {
         scrolled ? "shadow-md shadow-primary-night/10" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8">
+        <a href="#inicio" className="flex items-center gap-3">
           <img
-            src="/imgs/pet it/snoopy.png"
-            alt="Snoopy"
-            className="h-12 w-auto"
+            src="/imgs/pet it/logo2.png"
+            alt="Mascota"
+            className="h-18 w-auto"
           />
           <img
             src="/imgs/pet it/logo.png"
             alt="Logo de la veterinaria"
-            className="h-10 w-auto"
+            className="h-15 w-auto"
           />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-12 lg:flex" aria-label="Principal">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink transition-colors duration-200 hover:text-primary-night"
+              className="text-xl font-medium text-ink transition-colors duration-200 hover:text-primary-night"
             >
               {link.label}
             </a>
@@ -62,7 +62,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <a
             href="#ubicacion"
-            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary-deep shadow-md shadow-primary-night/20 transition-all duration-200 hover:bg-primary-paler"
+            className="rounded-full bg-white px-8 py-4 text-xl font-semibold text-primary-deep shadow-md shadow-primary-night/20 transition-all duration-200 hover:bg-primary-paler"
           >
             Contacto
           </a>
@@ -73,12 +73,12 @@ export default function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
-          className="rounded-md p-2 text-ink transition-colors hover:text-primary-night lg:hidden"
+          className="rounded-md p-3 text-ink transition-colors hover:text-primary-night lg:hidden"
         >
           {open ? (
-            <X size={26} aria-hidden="true" />
+            <X size={40} aria-hidden="true" />
           ) : (
-            <List size={26} aria-hidden="true" />
+            <List size={40} aria-hidden="true" />
           )}
         </button>
       </div>
@@ -86,7 +86,7 @@ export default function Header() {
       {open && (
         <div className="border-t border-primary-night/20 bg-primary/95 backdrop-blur-md lg:hidden">
           <nav
-            className="flex flex-col gap-1 px-4 py-4"
+            className="flex flex-col gap-1.5 px-5 py-6"
             aria-label="Menú móvil"
           >
             {links.map((link) => (
@@ -94,7 +94,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-white/30 hover:text-primary-dark"
+                className="rounded-lg px-4 py-5 text-2xl font-medium text-ink transition-colors hover:bg-white/30 hover:text-primary-dark"
               >
                 {link.label}
               </a>
@@ -102,7 +102,7 @@ export default function Header() {
             <a
               href="#ubicacion"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-white px-5 py-3 text-center text-base font-semibold text-primary-deep transition-colors hover:bg-primary-paler"
+              className="mt-2 rounded-full bg-white px-8 py-4 text-center text-2xl font-semibold text-primary-deep transition-colors hover:bg-primary-paler"
             >
               Contacto
             </a>

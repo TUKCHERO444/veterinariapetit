@@ -32,8 +32,8 @@ const serviciosAnalisis = [
   },
   {
     icon: "cpu",
-    title: "Digitalización de rayos X",
-    desc: "Digitalización y procesamiento avanzado de radiografías para obtener imágenes de mayor calidad, facilidad de almacenamiento y consulta remota.",
+    title: "Servicio de rayos X digital",
+    desc: "Digitalización y procesamiento avanzado de radiografías para obtener imágenes de mayor calidad y así llegar a un mejor diagnóstico, con facilidad de almacenamiento y consulta remota.",
     features: [
       "Digitalización de placas radiográficas",
       "Procesamiento y mejora de imagen",
@@ -42,10 +42,10 @@ const serviciosAnalisis = [
     ],
     image: "/imgs/pet it/digitalizador3.jpeg",
     modalImages: [
-      "/imgs/pet it/digitalizador3.jpeg",
       "/imgs/pet it/digitalizador1.jpeg",
+      "/imgs/pet it/digitalizador3.jpeg",
     ],
-    whatsapp: "Hola, quisiera información sobre la Digitalización de rayos X.",
+    whatsapp: "Hola, quisiera información sobre el Servicio de rayos X digital.",
   },
 ];
 
