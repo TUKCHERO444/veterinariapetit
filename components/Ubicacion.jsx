@@ -7,26 +7,32 @@ const contact = [
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Av. Salaverry 1496, Chiclayo 14009",
-    href: "https://www.google.com/maps/dir/?api=1&destination=Av.%20Salaverry%201496%2C%20Chiclayo%2014009",
+    value: "Av. Salaverry 1496, Urbanización Bancarios, Chiclayo",
+      href: "https://www.google.com/maps/dir/?api=1&destination=Av.%20Salaverry%201496%2C%20Urbanizaci%C3%B3n%20Bancarios%2C%20Chiclayo",
   },
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: "(074) 221172",
-    href: "tel:+5174221172",
-  },
-  {
-    icon: WhatsappLogo,
-    label: "WhatsApp",
-    value: "+51 979 635 803",
-    href: "https://wa.me/51979635803",
-  },
+     {
+       icon: Phone,
+       label: "Teléfono",
+       value: "979 635 803",
+       href: "tel:+51979635803",
+     },
+     {
+       icon: Phone,
+       label: "Teléfono fijo",
+       value: "(074) 221172",
+       href: "tel:+5174221172",
+     },
+     {
+       icon: WhatsappLogo,
+       label: "WhatsApp",
+       value: "924 769 484",
+       href: "https://wa.me/924769484",
+     },
 ];
 
 const horarios = [
   { day: "Lunes a sábado", manana: "9:00 a.m. – 2:00 p.m.", tarde: "4:00 – 7:00 p.m." },
-  { day: "Domingos", manana: "10:00 a.m. – 1:00 p.m.", tarde: "—" },
+  { day: "Domingos", manana: "10:00 a.m. – 12:30 p.m.", tarde: "—" },
 ];
 
 export default function Ubicacion() {
@@ -135,6 +141,9 @@ export default function Ubicacion() {
                     ))}
                   </tbody>
                 </table>
+                <p className="mt-3 text-sm text-ink-muted">
+                  De manera opcional, comunicarse al WhatsApp.
+                </p>
               </div>
             </Reveal>
           </div>

@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex gap-3">
             {[
-              { icon: WhatsappLogo, label: "WhatsApp", href: "https://wa.me/51979635803" },
+              {               icon: WhatsappLogo, label: "WhatsApp", href: "https://wa.me/924769484" },
             ].map(({ icon: Icon, label, href }) => (
               <a
                 key={label}
@@ -76,8 +76,10 @@ export default function Footer() {
           </h3>
           <ul className="mt-4 space-y-3">
             {[
-              { icon: MapPin, text: "Av. Salaverry 1496, Chiclayo 14009" },
-              { icon: Phone, text: "(074) 221172" },
+              { icon: MapPin, text: "Av. Salaverry 1496, Urbanización Bancarios, Chiclayo" },
+              { icon: Phone, text: "Teléfono: 979 635 803" },
+              { icon: Phone, text: "Teléfono fijo: (074) 221172" },
+              { icon: WhatsappLogo, text: "WhatsApp: 924 769 484" },
             ].map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-start gap-2 text-sm text-white/85">
                 <Icon size={18} className="mt-0.5 shrink-0 text-primary-paler" aria-hidden="true" />

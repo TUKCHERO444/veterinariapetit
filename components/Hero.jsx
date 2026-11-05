@@ -2,7 +2,7 @@ import { Stethoscope, ArrowRight, Sparkle } from "@phosphor-icons/react/ssr";
 import Reveal from "@/components/Reveal";
 import HeroBackground from "@/components/HeroBackground";
 
-const facts = [{ icon: Stethoscope, label: "+10 años de experiencia" }];
+const facts = [{ icon: Stethoscope, label: "+20 años de experiencia" }];
 
 export default function Hero() {
   return (

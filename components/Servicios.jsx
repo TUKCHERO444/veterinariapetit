@@ -39,7 +39,7 @@ const serviciosMedicos = [
   {
     icon: "bathtub",
     title: "Lavado de mascotas",
-    desc: "Baños y estética con productos de uso veterinario, agua tibia y un manejo tranquilo y respetuoso para que tu mascota salga limpia, fresca y feliz.",
+    desc: "Baños y estética con productos de uso veterinario, agua tibia y un manejo tranquilo y respetuoso para que tu mascota salga limpia, fresca y feliz. Se realiza con previa cita.",
     features: [
       "Baño medicado e higiene completa",
       "Secado y peinado profesional",
