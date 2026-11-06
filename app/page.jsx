@@ -7,10 +7,12 @@ import Tienda from "@/components/Tienda";
 import Ubicacion from "@/components/Ubicacion";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <Header />
       <main>
         <Hero />

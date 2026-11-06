@@ -37,12 +37,13 @@ export default function Header() {
         <a href="#inicio" className="flex items-center gap-3">
           <img
             src="/imgs/pet it/logo2.png"
-            alt="Mascota"
+            alt=""
+            aria-hidden="true"
             className="h-18 w-auto"
           />
           <img
             src="/imgs/pet it/logo.png"
-            alt="Logo de la veterinaria"
+            alt="Veterinaria Pet It en Chiclayo"
             className="h-15 w-auto"
           />
         </a>

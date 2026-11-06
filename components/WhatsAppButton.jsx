@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { WhatsappLogo } from "@phosphor-icons/react";
+import { BUSINESS } from "@/lib/site";
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
@@ -14,7 +15,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/924769484"
+      href={`https://wa.me/${BUSINESS.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"

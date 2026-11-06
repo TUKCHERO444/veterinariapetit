@@ -87,13 +87,13 @@ export default function Tienda() {
             <div className="relative flex h-full flex-col gap-4 lg:mt-0 lg:[mask-image:linear-gradient(to_right,transparent,black_2.25rem)]">
               <img
                 src="/imgs/pet it/tienda1.jpeg"
-                alt="Interior de la tienda de la clínica"
+                alt="Interior de la tienda de Veterinaria Pet It en Chiclayo"
                 loading="lazy"
                 className="min-h-[240px] w-full flex-1 rounded-3xl object-cover shadow-lg shadow-primary/5 sm:min-h-[320px]"
               />
               <img
                 src="/imgs/pet it/tienda2.jpeg"
-                alt="Vitrina de productos para mascotas"
+                alt="Vitrina de productos y alimentos para mascotas en Chiclayo"
                 loading="lazy"
                 className="min-h-[240px] w-full flex-1 rounded-3xl object-cover shadow-lg shadow-primary/5 sm:min-h-[320px]"
               />

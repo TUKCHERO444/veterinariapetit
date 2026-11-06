@@ -2,18 +2,19 @@ import { MapPin, Clock, Phone, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import Mapa from "@/components/Mapa";
 import Reveal from "@/components/Reveal";
 import WaveDivider from "@/components/WaveDivider";
+import { BUSINESS } from "@/lib/site";
 
 const contact = [
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Av. Salaverry 1496, Urbanización Bancarios, Chiclayo",
-      href: "https://www.google.com/maps/dir/?api=1&destination=Av.%20Salaverry%201496%2C%20Urbanizaci%C3%B3n%20Bancarios%2C%20Chiclayo",
+    value: `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}`,
+    href: BUSINESS.directions,
   },
      {
        icon: Phone,
        label: "Teléfono",
-       value: "979 635 803",
+       value: "979 635 803 / 924 769 484",
        href: "tel:+51979635803",
      },
      {
@@ -26,7 +27,7 @@ const contact = [
        icon: WhatsappLogo,
        label: "WhatsApp",
        value: "924 769 484",
-       href: "https://wa.me/924769484",
+       href: `https://wa.me/${BUSINESS.whatsapp}`,
      },
 ];
 

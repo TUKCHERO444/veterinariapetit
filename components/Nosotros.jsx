@@ -35,7 +35,7 @@ export default function Nosotros() {
               <div className="relative flex flex-col items-start gap-4">
                 <img
                   src="/imgs/pet it/logo.png"
-                  alt="Logo de la veterinaria"
+                  alt="Logo de Veterinaria Pet It"
                   className="h-16 w-auto object-contain"
                 />
                 <p className="text-sm text-ink-muted">
@@ -43,10 +43,11 @@ export default function Nosotros() {
                 </p>
               </div>
               <p className="relative mt-6 leading-relaxed text-ink-muted">
-                Somos un equipo de veterinarios y cuidadores que ve a cada
-                mascota como parte de la familia. Combinamos tecnología,
-                experiencia y mucha vocación para brindar atención de salud y
-                bienestar en un ambiente limpio, luminoso y confiable.
+                Desde 2005, somos un equipo de veterinarios y cuidadores en
+                Chiclayo que ve a cada mascota como parte de la familia.
+                Combinamos tecnología, experiencia y mucha vocación para
+                brindar atención de salud y bienestar en un ambiente limpio,
+                luminoso y confiable.
               </p>
               <div className="relative mt-6 flex flex-wrap gap-4">
                 {[

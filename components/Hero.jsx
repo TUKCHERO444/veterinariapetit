@@ -1,8 +1,18 @@
-import { Stethoscope, ArrowRight, Sparkle } from "@phosphor-icons/react/ssr";
+import {
+  Stethoscope,
+  ArrowRight,
+  Sparkle,
+  Bathtub,
+  CurrencyCircleDollar,
+} from "@phosphor-icons/react/ssr";
 import Reveal from "@/components/Reveal";
 import HeroBackground from "@/components/HeroBackground";
 
-const facts = [{ icon: Stethoscope, label: "+20 años de experiencia" }];
+const facts = [
+  { icon: Stethoscope, label: "+20 años de experiencia" },
+  { icon: CurrencyCircleDollar, label: "Consultas desde S/ 20" },
+  { icon: Bathtub, label: "Baños a domicilio" },
+];
 
 export default function Hero() {
   return (
@@ -41,8 +51,9 @@ export default function Hero() {
 
           <Reveal delay={200}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Clínica veterinaria integral con atención experta y un trato
-              cercano, en un ambiente limpio y luminoso.
+              Clínica veterinaria integral en Chiclayo, con atención experta y
+              un trato cercano. Consultas desde S/ 20 y baños a domicilio, en
+              un ambiente limpio y luminoso.
             </p>
           </Reveal>
 

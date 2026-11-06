@@ -16,8 +16,7 @@ import {
   CaretRight,
 } from "@phosphor-icons/react";
 import Reveal from "@/components/Reveal";
-
-export const WHATSAPP = "51979635803";
+import { BUSINESS } from "@/lib/site";
 
 const ICONS = {
   stethoscope: Stethoscope,
@@ -243,7 +242,7 @@ export default function ServiceSection({
               </ul>
 
               <a
-                href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(active.whatsapp)}`}
+                href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(active.whatsapp)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-base font-semibold text-white shadow-lg shadow-[#25D366]/25 transition-all duration-200 hover:bg-[#1DA851] hover:shadow-xl sm:w-auto"

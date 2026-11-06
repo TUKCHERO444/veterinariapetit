@@ -3,6 +3,7 @@ import {
   WhatsappLogo,
   MapPin,
 } from "@phosphor-icons/react/ssr";
+import { BUSINESS } from "@/lib/site";
 
 const servicios = [
   "Consultas",
@@ -28,17 +29,17 @@ export default function Footer() {
           <a href="#inicio" className="inline-flex items-center">
             <img
               src="/imgs/pet it/logo.png"
-              alt="Logo de la veterinaria"
+              alt="Logo de Veterinaria Pet It"
               className="h-12 w-auto"
             />
           </a>
           <p className="mt-4 max-w-md leading-relaxed text-white/85">
-            Clínica veterinaria y tienda para el bienestar de tu
-            mascota. Un cuidado claro y cristalino.
+            Clínica veterinaria y tienda para el bienestar de tu mascota en
+            Chiclayo. Un cuidado claro y cristalino desde 2005.
           </p>
           <div className="mt-6 flex gap-3">
             {[
-              {               icon: WhatsappLogo, label: "WhatsApp", href: "https://wa.me/924769484" },
+              { icon: WhatsappLogo, label: "WhatsApp", href: `https://wa.me/${BUSINESS.whatsapp}` },
             ].map(({ icon: Icon, label, href }) => (
               <a
                 key={label}
@@ -76,7 +77,7 @@ export default function Footer() {
           </h3>
           <ul className="mt-4 space-y-3">
             {[
-              { icon: MapPin, text: "Av. Salaverry 1496, Urbanización Bancarios, Chiclayo" },
+              { icon: MapPin, text: `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}` },
               { icon: Phone, text: "Teléfono: 979 635 803" },
               { icon: Phone, text: "Teléfono fijo: (074) 221172" },
               { icon: WhatsappLogo, text: "WhatsApp: 924 769 484" },

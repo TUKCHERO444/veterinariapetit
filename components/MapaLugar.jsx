@@ -3,8 +3,9 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { BUSINESS } from "@/lib/site";
 
-const position = [-6.7693847, -79.8598273];
+const position = [BUSINESS.geo.latitude, BUSINESS.geo.longitude];
 
 const customIcon = L.divIcon({
   className: "",
@@ -32,7 +33,7 @@ export default function MapaLugar() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position} icon={customIcon}>
-        <Popup>Veterinaria Pet It — Av. Salaverry 1496</Popup>
+        <Popup>{BUSINESS.name} — {BUSINESS.address.streetAddress}</Popup>
       </Marker>
     </MapContainer>
   );

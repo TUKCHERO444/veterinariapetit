@@ -7,8 +7,9 @@ const serviciosMedicos = [
   {
     icon: "stethoscope",
     title: "Atención de mascotas",
-    desc: "Consultas generales, chequeos preventivos y atención clínica para el bienestar integral de tu mascota. Diagnóstico claro, cuidado al día y seguimiento cercano en cada etapa de su vida.",
+    desc: "Consultas generales, chequeos preventivos y atención clínica para el bienestar integral de tu mascota. Consulta general desde S/ 20, diagnóstico claro y seguimiento cercano en cada etapa de su vida.",
     features: [
+      "Consulta general desde S/ 20",
       "Consultas y chequeos preventivos",
       "Vacunación y desparasitación",
       "Atención de urgencias",
@@ -39,12 +40,13 @@ const serviciosMedicos = [
   {
     icon: "bathtub",
     title: "Lavado de mascotas",
-    desc: "Baños y estética con productos de uso veterinario, agua tibia y un manejo tranquilo y respetuoso para que tu mascota salga limpia, fresca y feliz. Se realiza con previa cita.",
+    desc: "Baños y estética con productos de uso veterinario, agua tibia y un manejo tranquilo y respetuoso para que tu mascota salga limpia, fresca y feliz. Se realiza con previa cita y también a domicilio.",
     features: [
       "Baño medicado e higiene completa",
       "Secado y peinado profesional",
       "Corte de uñas y limpieza de oídos",
       "Productos hipoalergénicos",
+      "Servicio de baño a domicilio",
     ],
     image: "/imgs/pet it/lavado.jpeg",
     whatsapp: "Hola, quisiera información sobre el servicio de Lavado de mascotas.",
